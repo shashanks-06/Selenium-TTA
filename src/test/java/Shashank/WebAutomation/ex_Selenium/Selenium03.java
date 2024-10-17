@@ -4,6 +4,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.Test;
 
+import java.io.File;
+
 public class Selenium03 {
 
     @Test
@@ -24,7 +26,16 @@ public class Selenium03 {
 //        edgeOptions.addArguments("--window-size=800,600");
         edgeOptions.addArguments("--incognito");
 
+        //        To add extensions
+//        edgeOptions.addExtensions(new File("give/file/path/here/extension.crx"));
+
+
         EdgeDriver edgeDriver = new EdgeDriver(edgeOptions);
         edgeDriver.get("https://www.google.com");
+
+        //       OR
+        edgeDriver.manage().window().maximize();
+
+
     }
 }
