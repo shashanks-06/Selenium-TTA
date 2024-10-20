@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.ex_Selenium.Project01;
+package Shashank.WebAutomation.ex_Selenium.ex_12102024.Project01;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;

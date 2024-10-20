@@ -1,10 +1,8 @@
-package Shashank.WebAutomation.ex_Selenium;
+package Shashank.WebAutomation.ex_Selenium.ex_12102024;
 
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.Test;
-
-import java.io.File;
 
 public class Selenium03 {
 

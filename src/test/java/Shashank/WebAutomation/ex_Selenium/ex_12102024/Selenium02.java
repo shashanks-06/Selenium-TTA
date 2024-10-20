@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.ex_Selenium;
+package Shashank.WebAutomation.ex_Selenium.ex_12102024;
 
 public class Selenium02 {
     // If you are using selenium < 3.14

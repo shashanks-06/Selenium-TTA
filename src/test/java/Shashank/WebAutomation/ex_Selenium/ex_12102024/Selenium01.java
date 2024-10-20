@@ -1,13 +1,4 @@
-package Shashank.WebAutomation.ex_Selenium;
-
-import org.openqa.selenium.SearchContext;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariDriver;
+package Shashank.WebAutomation.ex_Selenium.ex_12102024;
 
 // WE'RE USING SELENIUM VERSION 4.25  -->> IMPORTANT
 
