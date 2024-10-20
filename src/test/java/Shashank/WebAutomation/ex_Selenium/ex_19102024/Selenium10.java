@@ -51,11 +51,8 @@ public class Selenium10 {
         submitButton.click();
 
 //        After 3 seconds the error comes
-        try {
             Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+
 
         WebElement errorMsgBox = driver.findElement(By.className("notification-box-description"));
         Assert.assertEquals(errorMsgBox.getText(), "Your email, password, IP address or location did not match");
