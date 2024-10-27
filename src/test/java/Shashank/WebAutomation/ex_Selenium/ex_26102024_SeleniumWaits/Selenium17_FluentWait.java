@@ -13,6 +13,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static Shashank.WebAutomation.ex_Selenium.ex_26102024_SeleniumWaits.WaitHelpers.checkVisibilityByFluentWaitUsingLocator;
+import static Shashank.WebAutomation.ex_Selenium.ex_26102024_SeleniumWaits.WaitHelpers.checkVisibilityByFluentWaitUsingWebElement;
+
 import java.time.Duration;
 import java.util.function.Function;
 
@@ -41,27 +44,36 @@ public class Selenium17_FluentWait {
 //        System.out.println(errorMsgBox.getText());
 
 //      Condition
-        Wait <WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofSeconds(2))
-                .withMessage("Waiting for Chrome to finish...")
-                .ignoring(NoSuchElementException.class);
+//        Wait <WebDriver> wait = new FluentWait<>(driver)
+//                .withTimeout(Duration.ofSeconds(10))
+//                .pollingEvery(Duration.ofSeconds(2))
+//                .withMessage("Waiting for Chrome to finish...")
+//                .ignoring(NoSuchElementException.class);
+//
+////        Element should be present
+//        wait.until(ExpectedConditions.visibilityOf(errorMsgBox));
+//
+////        Text in Element should be present
+//        wait.until(ExpectedConditions.textToBePresentInElement(
+//                errorMsgBox, "Your email, password, IP address or location did not match"));
+//
+//        WebElement errorMessage = wait.until(new Function<WebDriver, WebElement>() {
+//            @Override
+//            public WebElement apply(WebDriver webDriver) {
+//                return driver.findElement(By.cssSelector("#js-notification-box-msg"));
+//            }
+//        });
 
-//        Element should be present
-        wait.until(ExpectedConditions.visibilityOf(errorMsgBox));
+//        --------------------------------------------------------------------------------------------------------------------
 
-//        Text in Element should be present
-        wait.until(ExpectedConditions.textToBePresentInElement(
-                errorMsgBox, "Your email, password, IP address or location did not match"));
+//        Now using WaitHelpers Utility Function
+//        checkVisibilityByFluentWaitUsing -> Locator
+//        WebElement errorMessage = checkVisibilityByFluentWaitUsingLocator(driver,
+//                By.className("notification-box-description"));
 
-        System.out.println(errorMsgBox.getText());
+//        checkVisibilityByFluentWaitUsing -> WebElement
+        WebElement errorMessage = checkVisibilityByFluentWaitUsingWebElement(driver, errorMsgBox);
 
-        WebElement errorMessage = wait.until(new Function<WebDriver, WebElement>() {
-            @Override
-            public WebElement apply(WebDriver webDriver) {
-                return driver.findElement(By.cssSelector("#js-notification-box-msg"));
-            }
-        });
 
         Assert.assertEquals(errorMessage.getText(),
                 "Your email, password, IP address or location did not match");
