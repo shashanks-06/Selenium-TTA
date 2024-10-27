@@ -42,8 +42,8 @@ public class Selenium17_FluentWait {
 
 //      Condition
         Wait <WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(30))
-                .pollingEvery(Duration.ofSeconds(5))
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(2))
                 .withMessage("Waiting for Chrome to finish...")
                 .ignoring(NoSuchElementException.class);
 
