@@ -4,7 +4,6 @@ import io.qameta.allure.Description;
 import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -21,8 +20,6 @@ public class Selenium14_interviewQue {
 
         driver.get("https://www.ebay.com/");
 //      driver.manage().window().maximize();
-
-
 
         WebElement searchboxField = driver.findElement(By.cssSelector("input#gh-ac"));
 //        Or -> input[id='gh-ac']
