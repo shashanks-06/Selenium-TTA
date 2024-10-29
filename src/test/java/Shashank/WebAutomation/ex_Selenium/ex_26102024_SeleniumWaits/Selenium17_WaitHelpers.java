@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.function.Function;
 
-public class WaitHelpers {
+public class Selenium17_WaitHelpers {
 
     public static void checkVisibility(WebDriver driver, By locator){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

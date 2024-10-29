@@ -1,23 +1,14 @@
 package Shashank.WebAutomation.ex_Selenium.ex_26102024_SeleniumWaits;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static Shashank.WebAutomation.ex_Selenium.ex_26102024_SeleniumWaits.WaitHelpers.checkVisibilityByFluentWaitUsingLocator;
-import static Shashank.WebAutomation.ex_Selenium.ex_26102024_SeleniumWaits.WaitHelpers.checkVisibilityByFluentWaitUsingWebElement;
-
-import java.time.Duration;
-import java.util.function.Function;
+import static Shashank.WebAutomation.ex_Selenium.ex_26102024_SeleniumWaits.Selenium17_WaitHelpers.checkVisibilityByFluentWaitUsingWebElement;
 
 // FluentWait used to check the element in the intervals
 
