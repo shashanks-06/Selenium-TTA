@@ -1,6 +1,8 @@
 package Shashank.WebAutomation.ex_Selenium.ex_27102024;
 
 import io.qameta.allure.Description;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -9,8 +11,9 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Selenium22_ShadowDOM {
+public class Selenium22_JsDemo {
     WebDriver driver;
+    Alert alert;
 
     @BeforeTest
     public void openBrowser(){
@@ -21,10 +24,18 @@ public class Selenium22_ShadowDOM {
         driver = new EdgeDriver(options);
     }
 
-    @Description("Verify Shadow DOM")
+    @Description("Verify JS Demo")
     @Test
-    public void test_shadowDom(){
+    public void test_jsDemo() throws InterruptedException {
         driver.get("https://selectorshub.com/xpath-practice-page/");
+
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+
+        jsExecutor.executeScript("alert('Hello Shashank')");
+        Thread.sleep(1000);
+        alert = driver.switchTo().alert();
+        alert.accept();
+
 
     }
 
