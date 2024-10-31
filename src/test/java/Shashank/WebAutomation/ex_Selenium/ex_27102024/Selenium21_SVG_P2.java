@@ -33,7 +33,6 @@ WebDriver driver;
         driver.get("https://www.amcharts.com/svg-maps/?map=india");
 
         // local-name() , name()- Xpath (built in)
-        // document.querySelectorAll("#login-username"); - JS
 
         List<WebElement> allStates = driver.findElements(By.xpath(
                 "//*[name()='svg']/*[name()='g'][7]/*[name()='g']/*[name()='g']/*[name()='path']"
