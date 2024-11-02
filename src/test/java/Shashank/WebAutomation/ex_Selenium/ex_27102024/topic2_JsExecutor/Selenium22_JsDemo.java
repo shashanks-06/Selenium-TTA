@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.ex_Selenium.ex_27102024;
+package Shashank.WebAutomation.ex_Selenium.ex_27102024.topic2_JsExecutor;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.Alert;
