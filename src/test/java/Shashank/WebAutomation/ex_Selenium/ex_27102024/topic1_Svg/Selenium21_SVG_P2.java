@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.ex_Selenium.ex_27102024;
+package Shashank.WebAutomation.ex_Selenium.ex_27102024.topic1_Svg;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
@@ -12,9 +12,11 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.Objects;
 
-public class Selenium20_SVG_P1 {
-    WebDriver driver;
+public class Selenium21_SVG_P2 {
+
+WebDriver driver;
 
     @BeforeTest
     public void openBrowser(){
@@ -25,27 +27,29 @@ public class Selenium20_SVG_P1 {
         driver = new EdgeDriver(options);
     }
 
-    @Description("Verify that the after search, results are visible.")
+    @Description("Verify that the tripura is in india and click on it.")
     @Test
-    public void test_flipkartSearch(){
+    public void test_svgIndiaMapAndClick(){
+        driver.get("https://www.amcharts.com/svg-maps/?map=india");
 
-        driver.get("https://www.flipkart.com");
+        // local-name() , name()- Xpath (built in)
 
-        // Step 1 - Enter the "macmini" in the inputbox.
-        driver.findElement(By.name("q")).sendKeys("macmini");
+        List<WebElement> allStates = driver.findElements(By.xpath(
+                "//*[name()='svg']/*[name()='g'][7]/*[name()='g']/*[name()='g']/*[name()='path']"
+        ));
 
-        // Step 2 - Click on the svg element.
+        for (WebElement state : allStates){
+            System.out.println(state.getAttribute("aria-label"));
 
-        List<WebElement> svgElements = driver.findElements(By.xpath("//*[name()='svg']"));
-//        //*[local-name()='svg']
-        svgElements.get(0).click();
-
-        List<WebElement> titlesResults = driver.findElements(By.xpath("//div[contains(@data-id,'CPU')]/div/a[2]"));
-        for (WebElement title : titlesResults){
-            System.out.println(title.getText());
+//            To click on Tripura
+            if (Objects.requireNonNull(state.getAttribute("aria-label")).contains("Tripura")){
+                state.click();
+            }
         }
 
     }
+
+
 
     @AfterTest
     public void closeBrowser() throws InterruptedException {
@@ -54,4 +58,3 @@ public class Selenium20_SVG_P1 {
         driver.quit();
     }
 }
-
