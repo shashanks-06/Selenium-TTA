@@ -36,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Hiding env variables
+/src/test/resources/data.properties
