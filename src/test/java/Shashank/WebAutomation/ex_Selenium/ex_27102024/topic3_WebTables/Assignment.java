@@ -7,6 +7,7 @@ import org.openqa.selenium.io.FileHandler;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import utils.PropertyReader;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,8 +33,12 @@ public class Assignment {
 
         Thread.sleep(2000);
 
-        driver.findElement(By.xpath("//input[@placeholder=\"Username\"]")).sendKeys("admin");
-        driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("Hacker@4321");
+        String username = PropertyReader.readKey("webTableAssignment.username");
+        String password = PropertyReader.readKey("webTableAssignment.password");
+
+
+        driver.findElement(By.xpath("//input[@placeholder=\"Username\"]")).sendKeys(username);
+        driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys(password);
 //
         driver.findElement(By.xpath("//button[@type='submit']")).click();
     }
