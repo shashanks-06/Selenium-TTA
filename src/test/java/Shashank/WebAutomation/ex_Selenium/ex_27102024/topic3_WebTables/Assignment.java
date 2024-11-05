@@ -80,7 +80,6 @@ public class Assignment {
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-
 //                    Thread.sleep(1000);
 //
 //                    String cancelBtnXpath = "//button[@class=\"oxd-button oxd-button--medium oxd-button--text orangehrm-button-margin\"]";
