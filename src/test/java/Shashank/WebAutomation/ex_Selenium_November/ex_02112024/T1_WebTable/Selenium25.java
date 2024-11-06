@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.ex_Selenium.ex_02112024_table;
+package Shashank.WebAutomation.ex_Selenium_November.ex_02112024.T1_WebTable;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
