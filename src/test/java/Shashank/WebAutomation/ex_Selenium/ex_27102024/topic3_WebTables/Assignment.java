@@ -61,7 +61,7 @@ public class Assignment {
         String thirdPart = "]/div";
 
         for (int i = 1; i <= row ; i++) {
-            for (int j = 2; j <= col ; j++) {
+            for (int j = 2; j <= col ; j++) {   // j = 2 -> 1st column contains the checkbox
                 String dynamicXpath = firstPart + i + secondPart + j + thirdPart;
                 String data = driver.findElement(By.xpath(dynamicXpath)).getText();
 //                System.out.println(data);     // To Print all data from web table
