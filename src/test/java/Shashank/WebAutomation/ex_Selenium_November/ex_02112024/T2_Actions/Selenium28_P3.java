@@ -1,6 +1,7 @@
 package Shashank.WebAutomation.ex_Selenium_November.ex_02112024.T2_Actions;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -13,6 +14,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.List;
 
 public class Selenium28_P3 {
 
@@ -41,15 +43,43 @@ public class Selenium28_P3 {
 //        xButton.click();
 
         Thread.sleep(2000);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        // Wait until the element is visible
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@data-cy='closeModal']")));
+
         driver.findElement(By.xpath("//span[@data-cy=\"closeModal\"]")).click();
 
         WebElement sourceInputField =  driver.findElement(By.id("fromCity"));
 
+        Thread.sleep(3000);
 
-        Actions actions = new Actions(driver);      // Parameterized Constructor of Actions class to which driver passed
-
+        Actions actions = new Actions(driver);// Parameterized Constructor of Actions class to which driver passed
         actions.moveToElement(sourceInputField).click().sendKeys("Mumbai").build().perform();
-        
+
+//  1     -------------------------        ------------------------
+
+//        WebElement dropdownElement  = driver.findElement(By.xpath(
+//                "//p[normalize-space()='Mumbai, India']"));
+//
+//        actions.moveToElement(dropdownElement).click().build().perform();
+
+//  2     -------------------------   OR    ------------------------
+
+//        List<WebElement> dropdownList = driver.findElements(By.xpath(
+//                "//ul[@class=\"react-autosuggest__suggestions-list\"]/li"
+//        ));
+//        for (WebElement element : dropdownList){
+//            if (element.getText().contains("Mumbai")){
+//                element.click();
+//                break;
+//            }
+//        }
+
+//  3     -------------------------   OR    ------------------------
+        Thread.sleep(1000);
+
+        actions.moveToElement(sourceInputField).keyDown(Keys.ARROW_DOWN).keyDown(Keys.ENTER).perform();
 
     }
 
