@@ -9,12 +9,12 @@ public class FactorialOfPosAndNeg {
         System.out.print("Enter number to do factorization: ");
         int n = sc.nextInt();
 
-        if (factorial(n) == 0){
-            System.out.println("The factorial of " + n + " is Zero(0).");
-        }else if (factorial(n) < 0){
-            System.out.println("The factorial for negative number is undefined. ");
+        if (n == 0){
+            System.out.println("The factorial of " + n + " is One(1).");
+        }else if (n < 0){
+            System.out.println("The factorial for Negative Number (" + n + ") is undefined. ");
         }else {
-            System.out.println("Factorial of Positive number " + n + " :->  " + factorial(n));
+            System.out.println("Factorial of Positive Number (" + n + ") :->  " + factorial(n));
         }
     }
 
