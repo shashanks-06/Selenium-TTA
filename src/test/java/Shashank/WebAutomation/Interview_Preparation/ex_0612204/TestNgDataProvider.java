@@ -11,30 +11,36 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class TestNgDataProvider {
-    WebDriver driver;
+    static WebDriver driver;
 
     @BeforeMethod
     public void setup(){
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.flipkart.com/");
+        driver.get("https://www.saucedemo.com/v1/");
     }
 
-    @DataProvider(name = "searchDataProvider")
-    public Object[][] provideSearchData(){
-        Object[][] searchData = new Object[2][1];
-        searchData[0][0] = "Laptop";
-        searchData[1][0] = "PS5";
-
-        return searchData;
+    @DataProvider(name = "loginDataProvider")
+    public Object[][] provideLoginData(){
+        return new Object[][]{
+                {"standard_user", "secret_sauce"},
+                {"locked_out_user" ,"secret_sauce"}
+        };
     }
 
-    @Test(dataProvider = "searchDataProvider")
-    public void getTestSearchData(String searchKeyword){
-        WebElement searchElement = driver.findElement(By.cssSelector("[class=\"Pke_EE\"]"));
-        searchElement.sendKeys(searchKeyword, Keys.ENTER);
+    @Test(dataProvider = "loginDataProvider")
+    public void getTestLoginData(String username, String password){
+        System.out.println("Username : " + username + " password : " + password);
+
+        performLogin(username, password);
     }
 
+    public static void performLogin(String username, String password){
+        driver.findElement(By.id("user-name")).sendKeys(username);
+        driver.findElement(By.id("password")).sendKeys(password);
+
+        driver.findElement(By.id("login-button")).click();
+    }
 
 
     @AfterMethod
