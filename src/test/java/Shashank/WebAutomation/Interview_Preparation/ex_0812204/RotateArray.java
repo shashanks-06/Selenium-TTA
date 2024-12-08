@@ -2,6 +2,8 @@ package Shashank.WebAutomation.Interview_Preparation.ex_0812204;
 
 import java.util.Arrays;
 
+//      Rotate a array without using temporary array, Input can be integer or character
+
 public class RotateArray {
 
 //    For Integer Arrays
