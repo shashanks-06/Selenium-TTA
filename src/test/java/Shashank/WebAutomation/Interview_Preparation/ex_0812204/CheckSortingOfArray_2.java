@@ -1,5 +1,7 @@
 package Shashank.WebAutomation.Interview_Preparation.ex_0812204;
 
+//  Find if the array is sorted or not
+
 public class CheckSortingOfArray_2 {
 
     public static boolean isSortedAscending(int[] array){
