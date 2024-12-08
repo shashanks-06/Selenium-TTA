@@ -3,7 +3,7 @@ package Shashank.WebAutomation.Interview_Preparation.ex_0812204;
 
 import java.util.Arrays;
 
-public class CheckSortingOfArray {
+public class CheckSortingOfArray_1 {
 
 
     public static int[] sortArray(int[] array){
