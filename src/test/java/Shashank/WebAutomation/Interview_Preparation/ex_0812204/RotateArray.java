@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 public class RotateArray {
 
+//    For Integer Arrays
+
     public static void reverse(int[] array, int start, int end){
         while (start < end){
             int temp = array[start];
@@ -14,7 +16,7 @@ public class RotateArray {
         }
     }
 
-
+//      Rotating Right
     public static int[] rightRotateArray(int[] array, int k) {
         int n = array.length;
         k = k % n; // Handle cases where k > n
@@ -28,6 +30,7 @@ public class RotateArray {
         return array;
     }
 
+//    Rotating Left
     public static int[] leftRotateArray(int[] array, int k) {
         int n = array.length;
         k = k % n; // Handle cases where k > n
@@ -71,6 +74,7 @@ public class RotateArray {
 
 //  ----------------------------------------------------------------------------------------------------------
 
+//          ROTATING CHARACTER ARRAY
 
     public static void reverse(char[] array, int start, int end){
         while (start < end){
@@ -83,6 +87,7 @@ public class RotateArray {
         }
     }
 
+//    Rotating Right
     public static char[] rightRotateArray(char[] array, int k){
         int n = array.length;
 
@@ -97,6 +102,7 @@ public class RotateArray {
         return array;
     }
 
+//    Rotating Left
     public static char[] leftRotateArray(char[] array, int k){
         int n = array.length;
         k = k % n; // Handle cases where k > n
