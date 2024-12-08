@@ -3,6 +3,8 @@ package Shashank.WebAutomation.Interview_Preparation.ex_0812204;
 import java.util.Arrays;
 import java.util.HashSet;
 
+//      Find Repeating elements in array and move them to last without using temporary array
+
 public class MoveRepeatingToLast {
 
     public static void rearrangeArray(int[] arr){
