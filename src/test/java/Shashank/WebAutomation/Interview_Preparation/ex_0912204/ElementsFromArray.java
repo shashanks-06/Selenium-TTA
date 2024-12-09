@@ -2,6 +2,8 @@ package Shashank.WebAutomation.Interview_Preparation.ex_0912204;
 
 import java.util.Arrays;
 
+// Find the largest, 2nd largest and smallest elements from integer array
+
 public class ElementsFromArray {
 
     public static void descSortArray(int[] array){
