@@ -23,8 +23,8 @@ public class FetchValuesFromMap {
         System.out.println("City is " + city);
 
         System.out.println("\nAll Key Values Pairs :");
-        for (String key : map.keySet()){
-            System.out.println(key + " : " + map.get(key));
+        for (String key : map.keySet()){                        // keySet() : to retrieve all keys
+            System.out.println(key + " : " + map.get(key));     // get() : to fetch their values in a loop
         }
 
     }
