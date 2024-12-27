@@ -14,14 +14,18 @@ public class NegativeToStart {
             if(array[i] < 0){
                 int temp = array[i];
                 array[i] = array[left];
-                array[left] = temp;
-                left++;
+
+//                array[left] = temp;
+//                left++;
+
+//                OR
+                array[left++] = temp;
             }
         }
     }
 
     public static void main(String[] args) {
-        int[]array = {4, 6, 1, 0, -9, -2, 3, -7, 8, -5};
+        int[] array = {4, 6, 1, 0, -9, -2, 3, -7, 8, -5};
         moveNegativeToStart(array);
         System.out.println("Negative Element Sorted Array : " + Arrays.toString(array));
     }
