@@ -28,13 +28,14 @@ public class CheckSortingOfArray_2 {
         int[] arr2 = {5, 4, 3, 2, 1};
         int[] arr3 = {1, 3, 2, 4, 5};
 
-        System.out.println("Array 1 sorted in ascending? " + isSortedAscending(arr1));
-        System.out.println("Array 1 sorted in descending? " + isSortedDescending(arr1));
+        System.out.println("Array 1 sorted in ascending? -> " + isSortedAscending(arr1));
+        System.out.println("Array 1 sorted in descending? -> " + isSortedDescending(arr1));
 
-        System.out.println("Array 2 sorted in ascending? " + isSortedAscending(arr2));
-        System.out.println("Array 2 sorted in descending? " + isSortedDescending(arr2));
+        System.out.println("Array 2 sorted in ascending? -> " + isSortedAscending(arr2));
+        System.out.println("Array 2 sorted in descending? -> " + isSortedDescending(arr2));
 
-        System.out.println("Array 3 sorted in ascending? " + isSortedAscending(arr3));
-        System.out.println("Array 3 sorted in descending? " + isSortedDescending(arr3));
+        System.out.println("Array 3 sorted in ascending? -> " + isSortedAscending(arr3));
+        System.out.println("Array 3 sorted in descending? -> " + isSortedDescending(arr3));
     }
+
 }
