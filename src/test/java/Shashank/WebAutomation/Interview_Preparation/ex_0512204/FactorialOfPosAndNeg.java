@@ -16,8 +16,11 @@ public class FactorialOfPosAndNeg {
         }else {
             System.out.println("Factorial of Positive Number (" + n + ") :->  " + factorial(n));
         }
+
+//        System.out.println(fact(5));
     }
 
+//    By using "for" loop
     public static long factorial(int num){
 
         long result = 1;
@@ -28,4 +31,16 @@ public class FactorialOfPosAndNeg {
 
         return result;
     }
+
+
+//    By using "while" loop
+//    public static int fact(int num){
+//        int f = 1;
+//        int i = 1;
+//        while ( i<= num){
+//            f *= i;
+//            i++;
+//        }
+//        return f;
+//    }
 }
