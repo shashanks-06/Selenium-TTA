@@ -47,5 +47,4 @@ public class MergeSortedArrays {
         System.out.println("Merged Sorted Arrays : " + Arrays.toString(result));
 
     }
-
 }
