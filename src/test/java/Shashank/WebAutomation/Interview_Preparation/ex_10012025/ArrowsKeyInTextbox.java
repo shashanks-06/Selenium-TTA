@@ -37,12 +37,12 @@ public class ArrowsKeyInTextbox {
 
 //        searchInput.click();
 
-        Actions act = new Actions(driver);
-
-        act.moveToElement(searchInput).perform();
-
-        act.moveToElement(searchInput).sendKeys(Keys.ARROW_DOWN).perform();
-        Thread.sleep(2000);
+//        Actions act = new Actions(driver);
+//
+//        act.moveToElement(searchInput).perform();
+//
+//        act.moveToElement(searchInput).sendKeys(Keys.ARROW_DOWN).perform();
+//        Thread.sleep(2000);
 
         searchInput.sendKeys(Keys.ARROW_DOWN);
         Thread.sleep(2000);
