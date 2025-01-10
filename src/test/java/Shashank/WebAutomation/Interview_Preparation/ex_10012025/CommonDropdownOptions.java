@@ -36,8 +36,12 @@ public class CommonDropdownOptions {
 
         String url = "https://practice.expandtesting.com/dropdown";
 
+//        Execute JavaScript to open the link in a new tab by simulating a click while using window.open().
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.open(arguments[0], '_blank');", url);
+
+//        window.open(arguments[0], '_blank'); is used to open the URL in a new tab.
+//        arguments[0] is directly the url string.
     }
 
     public Set<String> getOptionsOf1st(){
@@ -48,6 +52,7 @@ public class CommonDropdownOptions {
 
         Select select_1stDd = new Select(firstDropdown);
 
+        // Store options as a Set of Strings for easy comparison
         Set<String> firstOptionsSet = new HashSet<>();
 
         for (WebElement option : select_1stDd.getOptions()){
@@ -63,6 +68,7 @@ public class CommonDropdownOptions {
 
         Select select_2ndDd = new Select(secondDropdown);
 
+        // Store options as a Set of Strings
         Set<String> secondOptionsSet = new HashSet<>();
 
         for (WebElement option : select_2ndDd.getOptions()){
@@ -75,8 +81,8 @@ public class CommonDropdownOptions {
     public List<String> windowHandler(){
         Set<String> windowHandles = driver.getWindowHandles();
         Iterator<String> iterator = windowHandles.iterator();
-        String mainTab = iterator.next();
-        String newTab = iterator.next();
+        String mainTab = iterator.next();   // First tab (current)
+        String newTab = iterator.next();    // Second tab (newly opened)
 
         List<String> stringList = new ArrayList<>();
         stringList.add(mainTab);
@@ -96,12 +102,13 @@ public class CommonDropdownOptions {
 
         open2ndWebsite();
 
+        //  Switch to the new tab
         driver.switchTo().window(windowHandler().get(1));
 
         Set<String> secondDropdownOptions = getOptionsOf2nd();
         Thread.sleep(1000);
 
-
+//      retainAll() method from the Set interface to find common elements.
         firstDropdownOptions.retainAll(secondDropdownOptions);
 
         System.out.println("Common Options are as follows:");
