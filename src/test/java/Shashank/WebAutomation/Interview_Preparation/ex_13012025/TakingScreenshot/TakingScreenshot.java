@@ -47,7 +47,7 @@ public class TakingScreenshot {
 
         try {
             ImageIO.write(screenshot.getImage(), "PNG",
-                    new File("src/test/java/Shashank/WebAutomation/Interview_Preparation/ex_13012025/TakingScreenshot/screenshots/AxisBank_AShot/png"));
+                    new File("src/test/java/Shashank/WebAutomation/Interview_Preparation/ex_13012025/TakingScreenshot/screenshots/AxisBank_AShot.png"));
             System.out.println("Full Page Screenshot Saved!");
         } catch (IOException e) {
             throw new RuntimeException(e);
