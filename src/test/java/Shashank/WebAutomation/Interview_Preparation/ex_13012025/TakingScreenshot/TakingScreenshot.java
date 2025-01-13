@@ -8,11 +8,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
+import javax.imageio.ImageIO;
 import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
-public class TakeScreenshot_1 {
+public class TakingScreenshot {
     WebDriver driver;
 
     @BeforeTest
@@ -34,6 +39,22 @@ public class TakeScreenshot_1 {
         source.renameTo(destination);
     }
 
+    public static void takeFullPageScreenshot_AShot(WebDriver driver){
+
+        Screenshot screenshot = new AShot()
+                .shootingStrategy(ShootingStrategies.viewportPasting(100))
+                .takeScreenshot(driver);
+
+        try {
+            ImageIO.write(screenshot.getImage(), "PNG",
+                    new File("src/test/java/Shashank/WebAutomation/Interview_Preparation/ex_13012025/TakingScreenshot/screenshots/AxisBank_AShot/png"));
+            System.out.println("Full Page Screenshot Saved!");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     @Test
     public void test_takeScreenshot(){
 
@@ -42,7 +63,8 @@ public class TakeScreenshot_1 {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(logo));
 
-        takeFullPageScreenshot_TakesScreenshot(driver);
+//        takeFullPageScreenshot_TakesScreenshot(driver);
+        takeFullPageScreenshot_AShot(driver);
     }
 
 
