@@ -23,11 +23,27 @@ public class ElementCount {
         }
     }
 
+    public static void countOccurrences(String string){
+        char[] charArray = string.toLowerCase().toCharArray();
+
+        Map<Character, Integer> occurenceMap = new HashMap<>();
+
+        for (char c : charArray){
+            occurenceMap.put(c, occurenceMap.getOrDefault(c, 0) + 1);
+        }
+
+        for (Map.Entry<Character, Integer> entry : occurenceMap.entrySet()){
+            System.out.println("Element : " + entry.getKey() + " Count : " + entry.getValue());
+        }
+
+    }
 
     public static void main(String[] args) {
         int[] numbers = {3, 7, 2, 8, 7, 3, 1, 2};
-
         countOccurrences(numbers);
+
+        String name = "Shashank";
+        countOccurrences(name);
     }
 }
 
