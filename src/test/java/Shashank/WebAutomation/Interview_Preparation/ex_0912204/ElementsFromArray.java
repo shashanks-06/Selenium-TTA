@@ -22,22 +22,15 @@ public class ElementsFromArray {
     }
 
     public static int getLargestOfArray(int[] array){
-        descSortArray(array);
-
         return array[0];
     }
 
     public static int getSecondLargestOfArray(int[] array){
-        descSortArray(array);
-
         return array[1];
     }
 
     public static int getSmallestOfArray(int[] array){
-        descSortArray(array);
-
         int lastIndex = array.length - 1;
-
         return array[lastIndex];
     }
 
