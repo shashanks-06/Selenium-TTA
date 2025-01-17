@@ -22,10 +22,18 @@ public class TestNgDataProvider {
 
     @DataProvider(name = "loginDataProvider")
     public Object[][] provideLoginData(){
+//        Object[][] data = new Object[2][2];
+//        data[0][0] = "standard_user";
+//        data[0][1] = "secret_sauce";
+//        data[1][0] = "locked_out_user";
+//        data[1][1] = "secret_sauce";
+//        return data;
+//        OR
         return new Object[][]{
                 {"standard_user", "secret_sauce"},
                 {"locked_out_user" ,"secret_sauce"}
         };
+
     }
 
     @Test(dataProvider = "loginDataProvider")
