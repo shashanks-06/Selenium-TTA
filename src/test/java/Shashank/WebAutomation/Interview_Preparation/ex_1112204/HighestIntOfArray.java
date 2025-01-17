@@ -18,12 +18,10 @@ public class HighestIntOfArray {
     }
 
     public static int getLargestInt(int[] array){
-        sortDescending(array);
         return array[0];
     }
 
     public static int get2ndLargestInt(int[] array){
-        sortDescending(array);
         return array[1];
     }
 
