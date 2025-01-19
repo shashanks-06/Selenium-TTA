@@ -3,7 +3,7 @@ package Shashank.WebAutomation.Interview_Preparation.ex_19012025;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class InsertElementsInArray_1 {
+public class InsertElementInArray_1 {
 
 
     public static void main(String[] args) {
