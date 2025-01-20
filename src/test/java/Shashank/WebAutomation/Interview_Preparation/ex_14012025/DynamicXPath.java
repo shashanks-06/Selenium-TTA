@@ -33,7 +33,7 @@ public class DynamicXPath {
     @Test
     public void test_checkAvailabilityBtn(){
         WebElement checkBtn = driver.findElement(By.xpath(
-                "//input[contains(@value, 'Check availability')]"));
+                "//input[contains(@value, 'Check availability')]")); // Dynamic XPath using contains() method
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(checkBtn));
