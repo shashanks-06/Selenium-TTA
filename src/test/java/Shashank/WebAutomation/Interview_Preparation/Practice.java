@@ -1,21 +1,12 @@
 package Shashank.WebAutomation.Interview_Preparation;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import javax.imageio.ImageIO;
-import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.time.Duration;
-import java.util.Arrays;
-
 
 public class Practice {
 //    WebDriver driver;
@@ -30,38 +21,36 @@ public class Practice {
 //        Thread.sleep(2000);
 //    }
 
-    public static int[] removeDuplicates(int[] arr){
-        int n = arr.length;
 
-        if (n == 0 || n == 1) return arr;
 
-        int[] temp = new int[n];
-        int index = 0;
+    public static void main(String[] args) throws IOException {
 
-        for (int i = 0; i < n; i++) {
-            boolean isDuplicate = false;
-            for (int j = 0; j < index; j++) {
-                if (arr[i] == temp[j]){
-                    isDuplicate = true;
-                    break;
-                }
+        String PATH = "src/test/java/Shashank/WebAutomation/Interview_Preparation/ex_15012025/testData.xlsx";
+
+        FileInputStream file = new FileInputStream(PATH);
+
+        XSSFWorkbook workbook = new XSSFWorkbook(file);
+
+        XSSFSheet sheet = workbook.getSheet("Sheet1");
+//
+        int totalRows = sheet.getLastRowNum();
+        System.out.println("Total Rows : " + totalRows);
+
+        int totalColumns = sheet.getRow(0).getLastCellNum();
+        System.out.println("Total Columns : " + totalColumns);
+//
+        for (int i = 0; i <= totalRows; i++) {
+            XSSFRow currentRow = sheet.getRow(i);
+            System.out.print(i + " -> ");
+            for (int j = 0; j < totalColumns; j++) {
+                XSSFCell cell = currentRow.getCell(j);
+                System.out.print(cell + " | ");
             }
-            if (!isDuplicate){
-                temp[index++] = arr[i];
-            }
+            System.out.println();
         }
 
-        int[] result = new int[index];
-        System.arraycopy(temp, 0, result, 0, index);
-
-        return result;
-    }
-
-    public static void main(String[] args) {
-        int[] array = {1, 2, 3, 2, 4, 5, 3, 6, 4};
-        int[] result = removeDuplicates(array);
-
-        System.out.println(Arrays.toString(result));
+        workbook.close();
+        file.close();
     }
 
 //    @AfterTest
