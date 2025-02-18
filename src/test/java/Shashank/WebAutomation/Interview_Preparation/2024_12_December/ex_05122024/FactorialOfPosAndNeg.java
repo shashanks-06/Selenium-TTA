@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.Interview_Preparation.ex_0512204;
+package Shashank.WebAutomation.Interview_Preparation.ex_05122024;
 
 import java.util.Scanner;
 
