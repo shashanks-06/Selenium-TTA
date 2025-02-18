@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.Interview_Preparation.ex_10012025;
+package Shashank.WebAutomation.Interview_Preparation.ex_2025_01_Jan.ex_10012025;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

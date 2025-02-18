@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.Interview_Preparation.ex_13012025.TakingScreenshot;
+package Shashank.WebAutomation.Interview_Preparation.ex_2025_01_Jan.ex_13012025.TakingScreenshot;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;

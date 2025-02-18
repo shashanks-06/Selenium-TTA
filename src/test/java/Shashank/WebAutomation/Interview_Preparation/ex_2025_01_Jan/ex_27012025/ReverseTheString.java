@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.Interview_Preparation.ex_27012025;
+package Shashank.WebAutomation.Interview_Preparation.ex_2025_01_Jan.ex_27012025;
 
 public class ReverseTheString {
 
