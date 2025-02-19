@@ -47,16 +47,31 @@ public class FindingNameInSvgGraph {
         driver.switchTo().defaultContent();
     }
 
-//    @Test(dependsOnMethods = "test_printWebChart")
-//    public void test_printZinoChart(){
-//        WebElement frameElement = driver.findElement(By.xpath("src=\"/svg/src/graph1.html\""));
-//        driver.switchTo().frame(frameElement);
-//
-//        List<WebElement> yAxisList = driver.findElements(By.xpath(
-//                ""));
-    //*[@class="zui-chart-labels zui-chart-labels-y"]//*[@text-anchor="end"]//*[text()='3']
-//
-//    }
+    @Test(dependsOnMethods = "test_printWebChart")
+    public void test_printZinoChart(){
+        WebElement frameElement = driver.findElement(By.xpath("//iframe[@src=\"/svg/src/graph1.html\"]"));
+        driver.switchTo().frame(frameElement);
+
+        List<WebElement> yAxisList = driver.findElements(By.xpath(
+                "//div[@id='chart']//*[name()='svg']//*[name()='g'][4]//*[@font-size=\"12px\"]//*[@alignment-baseline=\"middle\"]"));
+        //*[@class="zui-chart-labels zui-chart-labels-y"]//*[@text-anchor="end"]//*[text()='3']
+
+        System.out.println("Zino Chart Y-Axis : ");
+        for (WebElement element : yAxisList){
+            System.out.print(element.getText() + "\t");
+        }
+
+        System.out.println();
+
+        List<WebElement> xAxisList = driver.findElements(By.xpath(
+                "//div[@id='chart']//*[name()='svg']//*[name()='g'][5]//*[@font-size=\"12px\"]"));
+
+        System.out.println("Zino Chart X-Axis: ");
+        for (WebElement element : xAxisList){
+            System.out.print(element.getText() + "\t");
+        }
+
+    }
 
     @AfterTest
     public void tearDown() throws InterruptedException {
