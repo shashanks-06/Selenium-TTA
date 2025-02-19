@@ -71,6 +71,36 @@ public class FindingNameInSvgGraph {
             System.out.print(element.getText() + "\t");
         }
 
+        driver.switchTo().defaultContent();
+
+        System.out.println();
+    }
+
+    @Test(dependsOnMethods = "test_printZinoChart")
+    public void test_printZinoSurfaceChart(){
+        WebElement frameElement = driver.findElement(By.xpath("//iframe[@src=\"/svg/src/graph2.html\"]"));
+
+        driver.switchTo().frame(frameElement);
+
+        List<WebElement> yAxisElement = driver.findElements(By.xpath(
+                "//div[@id='chart']//*[name()='svg']//*[name()='g'][4]//*[@font-size=\"12px\"]//*[@alignment-baseline=\"middle\"]"));
+
+        System.out.println("Zino Surface Chart Y-Axis : ");
+        for (WebElement element : yAxisElement){
+            System.out.print(element.getText() + "\t");
+        }
+
+        System.out.println();
+
+        List<WebElement> xAxisElements = driver.findElements(By.xpath(
+                "//div[@id='chart']//*[name()='svg']//*[name()='g'][5]//*[@font-size=\"12px\"]"));
+
+        System.out.println("Zino Surface Chart X-Axis");
+        for (WebElement element : xAxisElements){
+            System.out.print(element.getText() + "\t");
+        }
+
+        driver.switchTo().defaultContent();
     }
 
     @AfterTest
