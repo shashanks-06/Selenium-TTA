@@ -13,15 +13,21 @@ public class InsertElementInArray_1 {
 
         int[] newArray = new int[array.length + 1];
 
-        for (int i = 0; i < index; i++) {
-            newArray[i] = array[i];
-        }
+//        for (int i = 0; i < index; i++) {
+//            newArray[i] = array[i];
+//        }
+//        OR
+        System.arraycopy(array, 0, newArray, 0, index);
+
 
         newArray[index] = valueToInsert;
 
-        for (int i = index; i < array.length ; i++) {
-            newArray[i+1] = array[i];
-        }
+
+//        for (int i = index; i < array.length ; i++) {
+//            newArray[i+1] = array[i];
+//        }
+//        OR
+        System.arraycopy(array, index, newArray, index + 1, array.length - index);
 
         return newArray;
     }
