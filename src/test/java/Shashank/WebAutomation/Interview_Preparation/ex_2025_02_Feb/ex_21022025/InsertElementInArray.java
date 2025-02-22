@@ -2,7 +2,7 @@ package Shashank.WebAutomation.Interview_Preparation.ex_2025_02_Feb.ex_21022025;
 
 import java.util.Arrays;
 
-public class InsertElementInArray_1 {
+public class InsertElementInArray {
 
     public static int[] insertElement(int[] array, int index, int valueToInsert){
 
