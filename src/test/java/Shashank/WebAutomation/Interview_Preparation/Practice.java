@@ -1,55 +1,63 @@
 package Shashank.WebAutomation.Interview_Preparation;
 
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.time.Duration;
+import java.util.Arrays;
 
 public class Practice {
-    WebDriver driver;
+//    WebDriver driver;
+//
+//    @BeforeTest
+//    public void setUp() throws InterruptedException {
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--start-maximized");
+//
+//        driver = new ChromeDriver(options);
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.get("https://www.tutorialspoint.com/svg/graph.htm");
+//        Thread.sleep(2000);
+//    }
 
-    @BeforeTest
-    public void setUp() throws InterruptedException {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
+    public static void reverse(int[] arr, int start, int end){
 
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://www.tutorialspoint.com/svg/graph.htm");
-        Thread.sleep(2000);
+        while (start < end){
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+
+            start++;
+            end--;
+        }
+    }
+
+    public static void rightShiftArray(int[] arr, int k){
+        int n = arr.length;
+
+        reverse(arr, 0, n - 1);
+        reverse(arr,0, k - 1);
+        reverse(arr, k, n -1);
+    }
+
+    public static void leftShiftArray(int[] arr, int k){
+        int n = arr.length;
+
+        reverse(arr, 0, k - 1);
+        reverse(arr, k, n-1);
+        reverse(arr,0, n-1);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,5};
+        int steps = 3;
+//        rightShiftArray(arr, steps);
+        leftShiftArray(arr, steps);
+        System.out.println(Arrays.toString(arr));
     }
 
 
-    @Test
-    public void test(){
-
-        WebElement frameElement = driver.findElement(By.xpath("//iframe[@src=\"/svg/src/graph.html\"]"));
-        driver.switchTo().frame(frameElement);
-
-        WebElement androidCircle = driver.findElement(By.xpath(
-                "//*[@class=\"circle\"][9]//*[2]"));
-        System.out.println(androidCircle.getText());
-//div[@id='div1']//*[name()='svg']//*[name()='g'][18]/*[name()='text'][1]
-    }
-
-    @AfterTest
-    public void tearDown() throws InterruptedException {
-        Thread.sleep(2000);
-        driver.quit();
-    }
+//    @AfterTest
+//    public void tearDown() throws InterruptedException {
+//        Thread.sleep(2000);
+//        driver.quit();
+//    }
 
 }
