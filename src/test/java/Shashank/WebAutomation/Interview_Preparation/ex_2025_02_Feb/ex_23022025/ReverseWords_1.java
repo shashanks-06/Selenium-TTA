@@ -4,7 +4,7 @@ package Shashank.WebAutomation.Interview_Preparation.ex_2025_02_Feb.ex_23022025;
 //2. Reverse words at same place of given string:
 //I/p: Test Automation and o/p: tseT noitamotuA
 
-public class ReverseWords {
+public class ReverseWords_1 {
 
     public static String reverseWordsInPlace(String str){
         if (str == null || str.isEmpty()){
