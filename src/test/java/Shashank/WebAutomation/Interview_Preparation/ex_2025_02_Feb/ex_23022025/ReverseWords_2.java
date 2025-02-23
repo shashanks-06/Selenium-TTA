@@ -1,6 +1,5 @@
 package Shashank.WebAutomation.Interview_Preparation.ex_2025_02_Feb.ex_23022025;
 
-import java.util.Arrays;
 
 public class ReverseWords_2 {
 
