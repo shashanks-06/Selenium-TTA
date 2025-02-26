@@ -17,7 +17,7 @@ public class Practice {
 //        Thread.sleep(2000);
 //    }
 
-    public static String reverse(String str){
+    public static void reverse(String str){
         if (str == null || str.isEmpty()){
             System.out.println("Invalid");
         }
@@ -25,19 +25,28 @@ public class Practice {
         assert str != null;
         String[] words = str.split(" ");
 
-        StringBuilder result = new StringBuilder();
-
         for (String word : words){
-            result.append(new StringBuilder(word).reverse()).append(" ");
+            char[] charArray = word.toCharArray();
+
+            int left = 0, right = charArray.length - 1;
+
+            while (left < right){
+                char temp = charArray[left];
+                charArray[left] = charArray[right];
+                charArray[right] = temp;
+
+                left++;
+                right--;
+            }
+            System.out.print(new String(charArray) + " ");
         }
-
-        return result.toString().trim();
-
     }
 
 
     public static void main(String[] args) {
-        System.out.println(reverse("Test Automation"));
+        String str = "Test Automation";
+        reverse(str);
+
     }
 
 
