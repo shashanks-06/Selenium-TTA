@@ -2,6 +2,8 @@ package Shashank.WebAutomation.Interview_Preparation;
 
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Practice {
 //    WebDriver driver;
@@ -17,36 +19,51 @@ public class Practice {
 //        Thread.sleep(2000);
 //    }
 
-    public static void reverse(String str){
+    public static void occurrence(String str){
         if (str == null || str.isEmpty()){
             System.out.println("Invalid");
         }
 
         assert str != null;
-        String[] words = str.split(" ");
+        str = str.replace(" ", "").toLowerCase();
 
-        for (String word : words){
-            char[] charArray = word.toCharArray();
+        Map<Character, Integer> map = new HashMap<>();
 
-            int left = 0, right = charArray.length - 1;
-
-            while (left < right){
-                char temp = charArray[left];
-                charArray[left] = charArray[right];
-                charArray[right] = temp;
-
-                left++;
-                right--;
-            }
-            System.out.print(new String(charArray) + " ");
+        for (char c : str.toCharArray()){
+            map.put(c, map.getOrDefault(c, 0) + 1);
         }
+
+        char maxChar = '\0', minChar = '\0';
+        int maxFreq = Integer.MIN_VALUE, minFreq = Integer.MAX_VALUE;
+
+        for (Map.Entry<Character, Integer> entry : map.entrySet()){
+            int count = entry.getValue();
+            char character = entry.getKey();
+
+            if (count > maxFreq){
+                maxFreq = count;
+                maxChar = character;
+            }
+
+            if (count < minFreq){
+                minFreq = count;
+                minChar = character;
+            }
+        }
+
+        System.out.println(maxChar + " : " + maxFreq);
+        System.out.println(minChar + " : " + minFreq);
+
     }
 
 
     public static void main(String[] args) {
-        String str = "Test Automation";
-        reverse(str);
+        String string = "Teeeessst Autoooooomationn";
+        occurrence(string);
     }
+
+
+
 
 
 //    @AfterTest
