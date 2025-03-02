@@ -17,7 +17,8 @@ public class MaximizeNumberInArray {
                 for (int j = i + 1; j < n ; j++) {
                     array[j] = 0;
                 }
-                return;
+                return;     // ensures that the function performs its 'single', specific task
+                            // (finding and applying the next largest number change) and then stops.
             }
         }
     }
