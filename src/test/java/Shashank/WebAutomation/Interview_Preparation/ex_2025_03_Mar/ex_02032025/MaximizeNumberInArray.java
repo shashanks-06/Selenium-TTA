@@ -2,6 +2,13 @@ package Shashank.WebAutomation.Interview_Preparation.ex_2025_03_Mar.ex_02032025;
 
 import java.util.Arrays;
 
+//  1. create a Java program that increases a number in an array to achieve the largest possible number,
+//  follow these steps: Identify the rightmost number that can be incremented without causing a carry overflow.
+//  Increment this number and set all subsequent digits to zero.
+// Input: {1,2,9}
+// Output:{1,3,0}
+
+
 public class MaximizeNumberInArray {
 
     public static void maximizeNumber(int[] array){
