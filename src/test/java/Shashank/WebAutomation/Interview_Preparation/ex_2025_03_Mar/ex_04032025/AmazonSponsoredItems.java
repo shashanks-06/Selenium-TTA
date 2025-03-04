@@ -39,11 +39,30 @@ public class AmazonSponsoredItems {
             System.out.println("No Sponsored Items Present" + e.getMessage());
         }
 
-        List<WebElement> sponsoredItemsList = driver.findElements(By.xpath(
+        WebElement sponsoredBannerName = driver.findElement(By.xpath(
+           "//a[@aria-label=\"AFROJACK Boots for Men\"]//span//span[@class=\"a-truncate-cut\"]"));
+
+        System.out.println("Sponsored Company Name : " + sponsoredBannerName.getText());
+
+        List<WebElement> sponsoredBannerItemsList = driver.findElements(By.xpath(
                 "//div[contains(@class, \"_bGlmZ_img_3idRh\")]//img"));
 
-        for (WebElement sponsoredItem : sponsoredItemsList){
+        for (WebElement sponsoredItem : sponsoredBannerItemsList){
             System.out.println(sponsoredItem.getAttribute("alt"));
+        }
+
+        System.out.println();
+        System.out.println("Sponsored Products Name : ");
+
+        List<WebElement> sponsoredItemsList = driver.findElements(By.xpath(
+                "//div[@data-component-type=\"s-search-result\"][.//span[contains(text(),'Sponsored')]]//h2//span"));
+
+        for (int i = 0; i < sponsoredItemsList.size(); i++) {
+            System.out.print(sponsoredItemsList.get(i).getText() + "  ");
+
+            if ((i + 1) % 2 == 0){
+                System.out.println();
+            }
         }
 
 
