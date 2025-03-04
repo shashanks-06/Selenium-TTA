@@ -19,47 +19,30 @@ public class Practice {
 //        Thread.sleep(2000);
 //    }
 
-    public static void occurrence(String str){
-        if (str == null || str.isEmpty()){
-            System.out.println("Invalid");
-        }
+    public static void maximizeInt(int[] array){
 
-        assert str != null;
-        str = str.replace(" ", "").toLowerCase();
+        int n = array.length;
 
-        Map<Character, Integer> map = new HashMap<>();
+        for (int i = n - 1; i >= 0 ; i--) {
 
-        for (char c : str.toCharArray()){
-            map.put(c, map.getOrDefault(c, 0) + 1);
-        }
+            if (array[i] != 9){
+                array[i]++;
 
-        char maxChar = '\0', minChar = '\0';
-        int maxFreq = Integer.MIN_VALUE, minFreq = Integer.MAX_VALUE;
-
-        for (Map.Entry<Character, Integer> entry : map.entrySet()){
-            int count = entry.getValue();
-            char character = entry.getKey();
-
-            if (count > maxFreq){
-                maxFreq = count;
-                maxChar = character;
-            }
-
-            if (count < minFreq){
-                minFreq = count;
-                minChar = character;
+                for (int j = i + 1; j < n ; j++) {
+                    array[j] = 0;
+                }
+                return;
             }
         }
-
-        System.out.println(maxChar + " : " + maxFreq);
-        System.out.println(minChar + " : " + minFreq);
 
     }
 
 
     public static void main(String[] args) {
-        String string = "Teeeessst Autoooooomationn";
-        occurrence(string);
+        int[] array = {1, 2, 9};
+        maximizeInt(array);
+
+        System.out.println(Arrays.toString(array));
     }
 
 
