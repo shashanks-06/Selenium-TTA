@@ -70,7 +70,25 @@ public class CssStyleValidation {
         Assert.assertTrue(fontSize.contains("14px"), "Font-Size Validation Failed!");
     }
 
+    @Test(priority = 3)
+    public void test_validatePosition(){
+        WebElement button = getSubmitBtn();
 
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        Object xPosObj =  js.executeScript("return arguments[0].getBoundingClientRect().x;", button);
+        Object yPosObj =  js.executeScript("return arguments[0].getBoundingClientRect().y;", button);
+
+        assert xPosObj != null;
+        double xPos = ((Number) xPosObj).doubleValue();
+        assert yPosObj != null;
+        double yPos = ((Number) yPosObj).doubleValue();
+
+        System.out.println("X-Position : " + xPos + " | Y-Position : " + yPos);
+
+        Assert.assertEquals(xPos, 625.4000244140625, "X-Position Validation Failed");
+        Assert.assertEquals(yPos, 241.0, "Y-Position Validation Failed");
+    }
 
 
     @AfterTest
