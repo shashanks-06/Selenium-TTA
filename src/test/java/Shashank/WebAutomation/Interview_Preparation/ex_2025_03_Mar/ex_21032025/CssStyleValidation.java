@@ -56,6 +56,20 @@ public class CssStyleValidation {
         Assert.assertEquals(expectedColor, actualColor, "Color Validation Failed");
     }
 
+    @Test(priority = 2)
+    public void test_validateFont(){
+        WebElement button = getSubmitBtn();
+
+        String fontFamily = button.getCssValue("fontFamily");
+        String fontSize = button.getCssValue("fontSize");
+
+        System.out.println("Font-Family : " + fontFamily + " | Font-Size : " + fontSize);
+
+        Assert.assertTrue(fontFamily.contains("apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif"),
+                "Font-Family Validation Failed!");
+        Assert.assertTrue(fontSize.contains("14px"), "Font-Size Validation Failed!");
+    }
+
 
 
 
