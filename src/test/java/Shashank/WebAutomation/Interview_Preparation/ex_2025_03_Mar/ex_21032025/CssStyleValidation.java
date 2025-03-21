@@ -27,8 +27,8 @@ public class CssStyleValidation {
         options.addArguments("--start-maximized");
         options.addArguments("guest");
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://www.instagram.com/accounts/login/?hl=en");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     public static Color convertRgbaToColor(String rgba){
