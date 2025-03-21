@@ -4,6 +4,7 @@ package Shashank.WebAutomation.Interview_Preparation.ex_2025_03_Mar.ex_21032025;
 // an element on a webpage?
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,7 +19,7 @@ import java.time.Duration;
 
 public class CssStyleValidation {
 
-    WebDriver driver;
+    static WebDriver driver;
 
     @BeforeTest
     public void setUp(){
@@ -39,17 +40,23 @@ public class CssStyleValidation {
         return new Color(r, g, b, a);
     }
 
-    @Test
-    public void test_validateColor(){
-        WebElement submitBtn = driver.findElement(By.xpath("//button[@class=\" _acan _acap _acas _aj1- _ap30\"]"));
+    public static WebElement getSubmitBtn(){
+        return driver.findElement(By.xpath("//button[@class=\" _acan _acap _acas _aj1- _ap30\"]"));
+    }
 
-        String colorValue = submitBtn.getCssValue("background-color");
+
+    @Test(priority = 1)
+    public void test_validateColor(){
+
+        String colorValue = getSubmitBtn().getCssValue("background-color");
         System.out.println("Color (RGB) : " + colorValue);
 
         Color actualColor = convertRgbaToColor(colorValue);
         Color expectedColor = new Color(0, 149, 246, 1);
         Assert.assertEquals(expectedColor, actualColor, "Color Validation Failed");
     }
+
+
 
 
     @AfterTest
