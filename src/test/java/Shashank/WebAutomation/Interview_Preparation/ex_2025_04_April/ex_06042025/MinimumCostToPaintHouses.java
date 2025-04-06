@@ -56,20 +56,20 @@ public class MinimumCostToPaintHouses {
 
     public static void main(String[] args) {
 
-        MinimumCostToPaintHouses solution = new MinimumCostToPaintHouses();
+        MinimumCostToPaintHouses minCost = new MinimumCostToPaintHouses();
 
         int[][] costs_1 = {
                 {1,5,3},
                 {2,9,4}
         };
-        int output1 = solution.minCostII(costs_1);
+        int output1 = minCost.minCostII(costs_1);
         System.out.println("Output 1: " + output1);
 
         int[][] costs_2 = {
                 {1,3},
                 {2,4}
         };
-        int output2 = solution.minCostII(costs_2);
+        int output2 = minCost.minCostII(costs_2);
         System.out.println("Output 2: " + output2);
     }
 }
