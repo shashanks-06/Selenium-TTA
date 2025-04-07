@@ -1,28 +1,20 @@
 package Shashank.WebAutomation.Interview_Preparation;
 
-
-
 public class Practice {
 
-  public static int getFactorial(int num){
-      if(num == 0 || num == 1) return 1;
-      if(num < 0) return -1;
+  public static String validateAccountNum(String accountNum){
+      String modString = accountNum.replaceAll("[^0-9]", "");
 
-      int result = 1;
-//      for (int i = 1; i <= num; i++){
-//          result *= i;
-//      }
-      int i = 2;
-      while (i <= num){
-          result *= i;
-          i++;
+      if (modString.length() == 9){
+          return modString;
+      }else {
+          return "Not a valid account number with 9 digits.";
       }
-
-      return result;
   }
 
     public static void main(String[] args) {
-        System.out.println(getFactorial(6));
+      String accountNum = "123@!*&-%^-456(#^-7^*&*89";
+        System.out.println(validateAccountNum(accountNum));
     }
 
 
