@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.Interview_Preparation.ex_0612204;
+package Shashank.WebAutomation.Interview_Preparation.ex_2024_12_Dec.ex_06122024;
 
 public class AccountNumValidator_1 {
     public static void main(String[] args) {
