@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.Interview_Preparation.ex_05122024;
+package Shashank.WebAutomation.Interview_Preparation.ex_2024_12_Dec.ex_05122024;
 
 import java.util.Scanner;
 
@@ -25,7 +25,7 @@ public class FactorialOfPosAndNeg {
 
         long result = 1;
 
-        for (int i = 1; i <= num ; i++) {
+        for (int i = 2; i <= num ; i++) {
             result *= i;
         }
 
@@ -36,7 +36,7 @@ public class FactorialOfPosAndNeg {
 //    By using "while" loop
 //    public static int fact(int num){
 //        int f = 1;
-//        int i = 1;
+//        int i = 2;
 //        while ( i<= num){
 //            f *= i;
 //            i++;
