@@ -1,58 +1,76 @@
 package Shashank.WebAutomation.Interview_Preparation;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.Duration;
+import java.util.List;
 
 public class Practice {
-//    WebDriver driver;
-//
-//    @BeforeTest
-//    public void setUp() throws InterruptedException {
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--start-maximized");
-//
-//        driver = new ChromeDriver(options);
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        driver.get("https://www.tutorialspoint.com/svg/graph.htm");
-//        Thread.sleep(2000);
-//    }
 
-    public static void maximizeInt(int[] array){
+    WebDriver driver;
 
-        int n = array.length;
+    @BeforeTest
+    public void setUp(){
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        options.addArguments("--guest");
 
-        for (int i = n - 1; i >= 0 ; i--) {
+        driver = new ChromeDriver(options);
+        driver.get("https://www.amazon.in");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
 
-            if (array[i] != 9){
-                array[i]++;
+    @Test
+    public void test_Amazon(){
 
-                for (int j = i + 1; j < n ; j++) {
-                    array[j] = 0;
-                }
-                return;
-            }
+        Actions act = new Actions(driver);
+
+        WebElement accountsAndListsElement = driver.findElement(By.xpath(
+                "//div[@class=\"nav-line-1-container\"]"));
+
+        act.moveToElement(accountsAndListsElement).perform();
+
+        WebElement signInBtnElement = driver.findElement(By.className("nav-action-inner"));
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(signInBtnElement));
+
+        String yourListsHeading = driver.findElement(By.id("nav-al-title")).getText();
+        List<WebElement> yourLists = driver.findElements(By.xpath("//div[@id=\"nav-al-wishlist\"]//span"));
+
+        System.out.println("\"" + yourListsHeading + "\" :");
+        for (WebElement listItem : yourLists){
+            System.out.println(listItem.getText());
+        }
+
+        System.out.println("=====================================================");
+
+        String yourAccountsHeading = driver.findElement(By.xpath(
+                "//div[@id=\"nav-al-your-account\"]//div")).getText();
+        List<WebElement> yourAccounts = driver.findElements(By.xpath(
+                "//div[@id=\"nav-al-your-account\"]//span"));
+
+        System.out.println("\"" + yourAccountsHeading + "\" :");
+        for (WebElement listItem : yourAccounts){
+            System.out.println(listItem.getText());
         }
 
     }
 
-
-    public static void main(String[] args) {
-        int[] array = {1, 2, 9};
-        maximizeInt(array);
-
-        System.out.println(Arrays.toString(array));
+    @AfterTest
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.quit();
     }
-
-
-
-
-
-//    @AfterTest
-//    public void tearDown() throws InterruptedException {
-//        Thread.sleep(2000);
-//        driver.quit();
-//    }
 
 }
