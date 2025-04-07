@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.Interview_Preparation.ex_05122024;
+package Shashank.WebAutomation.Interview_Preparation.ex_2024_12_Dec.ex_05122024;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
