@@ -1,46 +1,34 @@
 package Shashank.WebAutomation.Interview_Preparation;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.*;
+
 
 public class Practice {
 
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setUp(){
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        options.addArguments("incognito");
-
-        driver = new ChromeDriver(options);
-        driver.get("https://www.saucedemo.com/v1/");
+    public static boolean isAscending(int[] array){
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] > array[ i + 1]){
+                return false;
+            }
+        }
+        return true;
     }
 
-    @DataProvider(name = "loginDataProvider")
-    public Object[][] credentials(){
-        return new Object[][]{
-                {"standard_user", "secret_sauce"},
-                {"locked_out_user", "secret_sauce"}
-        };
+    public static boolean isDescending(int[] array){
+        for (int i = 0; i < array.length - 1; i++){
+            if (array[i] < array[i + 1]){
+                return false;
+            }
+        }
+
+        return true;
     }
 
-    @Test(dataProvider = "loginDataProvider")
-    public void doLoginWithTestData(String username, String password){
-        driver.findElement(By.id("user-name")).sendKeys(username);
-        driver.findElement(By.id("password")).sendKeys(password);
+    public static void main(String[] args) {
+        int[] array1 = {1, 2, 3, 4, 5};
+        System.out.println(isAscending(array1));
 
-        driver.findElement(By.id("login-button")).click();
+        int[] array2 = {5, 4, 3, 2, 1};
+        System.out.println(isDescending(array2));
     }
-
-    @AfterMethod
-    public void tearDown() throws InterruptedException {
-        Thread.sleep(2000);
-        driver.quit();
-}
-
 
 }
