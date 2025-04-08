@@ -6,33 +6,41 @@ import java.util.Set;
 
 public class Practice {
 
-    public static void rearrangeArray(int [] array){
-        Set<Integer> set = new HashSet<>();
-        int index = 0;
+    public static void reverse(int[] array, int start, int end) {
+        while(start < end){
+            int temp = array[start];
+            array[start] = array[end];
+            array[end] = temp;
 
-        int[] repeatedElements = new int[array.length];
-        int repeatingIndex = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            if (!set.contains(array[i])){
-                set.add(array[i]);
-                array[index++] = array[i];
-            }else {
-                repeatedElements[repeatingIndex++] = array[i];
-            }
-        }
-
-        for (int i = 0; i < repeatingIndex; i++) {
-            array[index++] = repeatedElements[i];
+            start++;
+            end--;
         }
     }
 
+    public static void leftShiftArray(int[] array, int k) {
+        int n = array.length;
+
+        reverse(array, 0, k - 1);
+        reverse(array, k, n-1);
+        reverse(array, 0, n-1);
+    }
+
+    public static void rightShiftArray(int[] array, int k){
+        int n = array.length;
+
+        reverse(array, 0, n-1);
+        reverse(array, 0, k-1);
+        reverse(array, k, n-1);
+    }
 
 
     public static void main(String[] args) {
-        int[] array = {1, 1, 2,2, 3,3, 4,4, 5,5};
-        rearrangeArray(array);
-        System.out.println("Rearranged Array: " + Arrays.toString(array));
+        int[] array = {1, 2, 3, 4, 5};
+
+//        leftShiftArray(array, 3);
+        rightShiftArray(array, 3);
+        System.out.println(Arrays.toString(array));
+
     }
 
 }
