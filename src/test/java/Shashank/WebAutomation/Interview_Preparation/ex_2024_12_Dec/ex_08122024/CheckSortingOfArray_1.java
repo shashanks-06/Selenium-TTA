@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.Interview_Preparation.ex_0812204;
+package Shashank.WebAutomation.Interview_Preparation.ex_2024_12_Dec.ex_08122024;
 
 import java.util.Arrays;
 
