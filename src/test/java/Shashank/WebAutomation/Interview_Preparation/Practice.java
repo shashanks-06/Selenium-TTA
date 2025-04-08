@@ -1,28 +1,34 @@
 package Shashank.WebAutomation.Interview_Preparation;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class Practice {
 
-    public static void negativeToStart(int[] array) {
-        int left = 0;
+    public static int[] removeDup(int[] array) {
+        Set<Integer> set = new HashSet<>();
 
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] < 0){
-                int temp = array[i];
-                array[i] = array[left];
-                array[left++] = temp;
-            }
+        for (int num : array){
+            set.add(num);
         }
+
+        int[] result = new int[set.size()];
+        int index = 0;
+
+        for (int num : set){
+            result[index++] = num;
+        }
+
+        return result;
     }
 
 
     public static void main(String[] args) {
-        int[] array = {-1, 2, -3, 4, -5};
-        negativeToStart(array);
-
-        System.out.println(Arrays.toString(array));
+        int[] array = {1,1, 2,2, 3,3,4, 4,5,5};
+        int[] result = removeDup(array);
+        System.out.println(Arrays.toString(result));
 
     }
 
