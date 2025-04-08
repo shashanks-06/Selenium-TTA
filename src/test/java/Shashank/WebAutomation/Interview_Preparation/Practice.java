@@ -1,34 +1,38 @@
 package Shashank.WebAutomation.Interview_Preparation;
 
-
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Practice {
 
-    public static boolean isAscending(int[] array){
-        for (int i = 0; i < array.length - 1; i++) {
-            if (array[i] > array[ i + 1]){
-                return false;
+    public static void rearrangeArray(int [] array){
+        Set<Integer> set = new HashSet<>();
+        int index = 0;
+
+        int[] repeatedElements = new int[array.length];
+        int repeatingIndex = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (!set.contains(array[i])){
+                set.add(array[i]);
+                array[index++] = array[i];
+            }else {
+                repeatedElements[repeatingIndex++] = array[i];
             }
         }
-        return true;
-    }
 
-    public static boolean isDescending(int[] array){
-        for (int i = 0; i < array.length - 1; i++){
-            if (array[i] < array[i + 1]){
-                return false;
-            }
+        for (int i = 0; i < repeatingIndex; i++) {
+            array[index++] = repeatedElements[i];
         }
-
-        return true;
     }
+
+
 
     public static void main(String[] args) {
-        int[] array1 = {1, 2, 3, 4, 5};
-        System.out.println(isAscending(array1));
-
-        int[] array2 = {5, 4, 3, 2, 1};
-        System.out.println(isDescending(array2));
+        int[] array = {1, 1, 2,2, 3,3, 4,4, 5,5};
+        rearrangeArray(array);
+        System.out.println("Rearranged Array: " + Arrays.toString(array));
     }
 
 }
