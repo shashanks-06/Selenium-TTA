@@ -1,23 +1,46 @@
 package Shashank.WebAutomation.Interview_Preparation;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.*;
+
 public class Practice {
 
-  public static String validateAccountNum(String accountNum){
-      String modString = accountNum.replaceAll("[^0-9]", "");
+    WebDriver driver;
 
-      if (modString.length() == 9){
-          return modString;
-      }else {
-          return "Not a valid account number with 9 digits.";
-      }
-  }
+    @BeforeMethod
+    public void setUp(){
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        options.addArguments("incognito");
 
-    public static void main(String[] args) {
-      String accountNum = "123@!*&-%^-456(#^-7^*&*89";
-        System.out.println(validateAccountNum(accountNum));
+        driver = new ChromeDriver(options);
+        driver.get("https://www.saucedemo.com/v1/");
     }
 
+    @DataProvider(name = "loginDataProvider")
+    public Object[][] credentials(){
+        return new Object[][]{
+                {"standard_user", "secret_sauce"},
+                {"locked_out_user", "secret_sauce"}
+        };
+    }
 
+    @Test(dataProvider = "loginDataProvider")
+    public void doLoginWithTestData(String username, String password){
+        driver.findElement(By.id("user-name")).sendKeys(username);
+        driver.findElement(By.id("password")).sendKeys(password);
+
+        driver.findElement(By.id("login-button")).click();
+    }
+
+    @AfterMethod
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.quit();
+}
 
 
 }
