@@ -5,39 +5,37 @@ import java.util.*;
 
 public class Practice {
 
-    public static void countOccurrences(int[] array) {
-        Map<Integer, Integer> map = new HashMap<>();
+    public static int[] mergeSortedArrays(int[] array1, int[] array2) {
+        int m = array1.length;
+        int n = array2.length;
+        int[] mergedArray = new int[m + n];
+        int i = 0, j = 0, k= 0;
 
-        for (int num : array){
-            map.put(num, map.getOrDefault(num, 0) + 1);
+        while (i < m && j < n){
+            if (array1[i] < array2[j]){
+                mergedArray[k++] = array1[i++];
+            }else {
+                mergedArray[k++] = array2[j++];
+            }
         }
 
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()){
-            System.out.println(entry.getKey() + " : " + entry.getValue());
-        }
-    }
-
-    public static void countOccurrences(String string) {
-        char[] charArray = string.toLowerCase().toCharArray();
-
-        Map<Character, Integer> map = new HashMap<>();
-
-        for (char ch : charArray){
-            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        while (i < m){
+            mergedArray[k++] = array1[i++];
         }
 
-        for (Map.Entry<Character, Integer> entry : map.entrySet()){
-            System.out.println(entry.getKey() + " : " + entry.getValue());
+        while (j < n){
+            mergedArray[k++] = array2[j++];
         }
+
+        return mergedArray;
     }
 
 
     public static void main(String[] args) {
-        int[] array = {1,1,3, 2,2, 3,3,4, 4,5,5, 5};
-//       countOccurrences(array);
+        int[] array1 = {1,3,5,7,9};
+        int[] array2 = {0,2,4,6,8};
 
-        String string = "aabbczcddeeffggh";
-        countOccurrences(string);
+        System.out.println(Arrays.toString(mergeSortedArrays(array1, array2)));
     }
 
 }
