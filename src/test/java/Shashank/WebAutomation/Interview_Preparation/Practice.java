@@ -1,35 +1,26 @@
 package Shashank.WebAutomation.Interview_Preparation;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 
 public class Practice {
 
-    public static int[] removeDup(int[] array) {
-        Set<Integer> set = new HashSet<>();
+    public static void countOccurrences(int[] array) {
+        Map<Integer, Integer> map = new HashMap<>();
 
         for (int num : array){
-            set.add(num);
+            map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
-        int[] result = new int[set.size()];
-        int index = 0;
-
-        for (int num : set){
-            result[index++] = num;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()){
+            System.out.println(entry.getKey() + " : " + entry.getValue());
         }
-
-        return result;
     }
 
 
     public static void main(String[] args) {
-        int[] array = {1,1, 2,2, 3,3,4, 4,5,5};
-        int[] result = removeDup(array);
-        System.out.println(Arrays.toString(result));
-
+        int[] array = {1,1,3, 2,2, 3,3,4, 4,5,5, 5};
+       countOccurrences(array);
     }
 
 }
