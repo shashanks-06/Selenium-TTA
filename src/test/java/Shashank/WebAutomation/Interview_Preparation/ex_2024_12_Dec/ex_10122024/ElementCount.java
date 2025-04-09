@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.Interview_Preparation.ex_1012204;
+package Shashank.WebAutomation.Interview_Preparation.ex_2024_12_Dec.ex_10122024;
 
 //  Count Occurrences of Each Element in an Array, Input Array: int[] numbers = {3, 7, 2, 8, 7, 3, 1, 2};
 //  Count Occurrences of Each character in a String
