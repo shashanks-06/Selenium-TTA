@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.Interview_Preparation.ex_1012204;
+package Shashank.WebAutomation.Interview_Preparation.ex_2024_12_Dec.ex_10122024;
 
 
 //  Merge the 2 sorted arrays, Inputs:
