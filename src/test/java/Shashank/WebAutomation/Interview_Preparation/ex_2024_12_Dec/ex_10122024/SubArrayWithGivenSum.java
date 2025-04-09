@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.Interview_Preparation.ex_1012204;
+package Shashank.WebAutomation.Interview_Preparation.ex_2024_12_Dec.ex_10122024;
 
 // Find SubArray with Given Sum, ExpectedSum = 33, Input array: int[] numbers = {1, 4, 20, 3, 10, 5};
 
