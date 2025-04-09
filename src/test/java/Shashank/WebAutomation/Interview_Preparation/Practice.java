@@ -5,37 +5,34 @@ import java.util.*;
 
 public class Practice {
 
-    public static int[] mergeSortedArrays(int[] array1, int[] array2) {
-        int m = array1.length;
-        int n = array2.length;
-        int[] mergedArray = new int[m + n];
-        int i = 0, j = 0, k= 0;
+    public static int[] findSubArray(int[] array, int expectedSum) {
+        int currentSum = 0;
+        int start = 0;
 
-        while (i < m && j < n){
-            if (array1[i] < array2[j]){
-                mergedArray[k++] = array1[i++];
-            }else {
-                mergedArray[k++] = array2[j++];
+        for (int end = 0; end < array.length; end++) {
+
+            currentSum += array[end];
+
+            while(currentSum > expectedSum && start <= end){
+                currentSum -= array[start];
+                start++;
+            }
+
+            if (currentSum == expectedSum){
+                System.out.println("SubArray found in between : " + start + " and " + end);
+                return Arrays.copyOfRange(array, start, end + 1);
             }
         }
 
-        while (i < m){
-            mergedArray[k++] = array1[i++];
-        }
-
-        while (j < n){
-            mergedArray[k++] = array2[j++];
-        }
-
-        return mergedArray;
+        return new int[]{};
     }
 
 
     public static void main(String[] args) {
-        int[] array1 = {1,3,5,7,9};
-        int[] array2 = {0,2,4,6,8};
+        int[] numbers = {1, 4, 20, 3, 10, 5};
+        int expectedSum = 33;
 
-        System.out.println(Arrays.toString(mergeSortedArrays(array1, array2)));
+        System.out.println(Arrays.toString(findSubArray(numbers, expectedSum)));
     }
 
 }
