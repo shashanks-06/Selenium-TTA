@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.Interview_Preparation.ex_1212204;
+package Shashank.WebAutomation.Interview_Preparation.ex_2024_12_Dec.ex_12122024;
 
 import java.util.HashMap;
 import java.util.Map;
