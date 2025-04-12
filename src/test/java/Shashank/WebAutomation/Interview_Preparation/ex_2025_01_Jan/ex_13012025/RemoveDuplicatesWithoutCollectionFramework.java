@@ -16,20 +16,20 @@ public class RemoveDuplicatesWithoutCollectionFramework {
         int[] temp = new int[n];
         int index = 0;
 
-        for (int i = 0; i < n; i++) {
+        for (int k : arr) {
 
             boolean isDuplicate = false;
 
             for (int j = 0; j < index; j++) {
 
-                if (arr[i] == temp[j]){
+                if (k == temp[j]) {
                     isDuplicate = true;
                     break;
                 }
             }
 
-            if (!isDuplicate){
-                temp[index++] = arr[i];
+            if (!isDuplicate) {
+                temp[index++] = k;
             }
         }
 
