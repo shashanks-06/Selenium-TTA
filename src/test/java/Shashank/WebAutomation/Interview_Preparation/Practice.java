@@ -1,45 +1,57 @@
 package Shashank.WebAutomation.Interview_Preparation;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 
 public class Practice {
-    public static int[] removeDup(int[] array){
-        int n = array.length;
 
-        if (n == 0 || n == 1){
-            return array;
-        }
-
-        int[] temp = new int[n];
-        int index = 0;
-
-        for (int k : array){
-            boolean isDuplicate = false;
-
-            for (int i = 0; i < index; i++) {
-
-                if (k == temp[i]){
-                    isDuplicate = true;
-                    break;
-                }
-            }
-
-            if (!isDuplicate){
-                temp[index++] = k;
-            }
-        }
-
-        int[] result = new int[index];
-        System.arraycopy(temp, 0, result, 0, index);
-
-        return result;
-    }
 
     public static void main(String[] args) {
-        int[] array = {1, 2, 3, 2, 4, 5, 3, 6, 4, 5};
 
-        System.out.println(Arrays.toString(removeDup(array)));
+        String FILE_PATH = "src/test/java/Shashank/WebAutomation/Interview_Preparation/ex_2025_01_Jan/ex_15012025/testData.xlsx";
+
+        try(FileInputStream file = new FileInputStream(FILE_PATH)){
+
+            Workbook workbook = new XSSFWorkbook(file);
+            Sheet sheet = workbook.getSheetAt(0);
+
+            for (Row r : sheet){
+                for (Cell c : r){
+                    switch (c.getCellType()){
+                        case STRING:
+                            System.out.print(c.getStringCellValue() + "   ");
+                            break;
+
+                        case NUMERIC:
+                            System.out.print(c.getNumericCellValue() + "   ");
+                            break;
+
+                        case BOOLEAN:
+                            System.out.print(c.getBooleanCellValue() + "   ");
+                            break;
+
+                        default:
+                            System.out.print("Illegal Format    ");
+                            break;
+                    }
+                }
+                System.out.println();
+            }
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+
     }
 
 
