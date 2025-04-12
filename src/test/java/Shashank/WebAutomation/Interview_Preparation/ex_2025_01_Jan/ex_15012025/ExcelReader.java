@@ -12,7 +12,7 @@ public class ExcelReader {
 
     public static void main(String[] args) {
 
-        String FILE_PATH = "src/test/java/Shashank/WebAutomation/Interview_Preparation/ex_15012025/testData.xlsx";
+        String FILE_PATH = "src/test/java/Shashank/WebAutomation/Interview_Preparation/ex_2025_01_Jan/ex_15012025/testData.xlsx";
 
         try (FileInputStream file = new FileInputStream(FILE_PATH);
              XSSFWorkbook workbook = new XSSFWorkbook(file)) {
