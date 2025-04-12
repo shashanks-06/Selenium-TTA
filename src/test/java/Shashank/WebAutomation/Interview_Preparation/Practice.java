@@ -16,99 +16,43 @@ import java.util.*;
 
 
 public class Practice {
+    public static int[] removeDup(int[] array){
+        int n = array.length;
 
-    WebDriver driver;
-    Select select;
-
-    @BeforeTest
-    public void setUp(){
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        options.addArguments("guest");
-
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    }
-
-    public void open1stWebsite(){
-        driver.get("https://www.globalsqa.com/demo-site/select-dropdown-menu/");
-    }
-
-    public void open2ndWebsite(){
-        String url = "https://practice.expandtesting.com/dropdown";
-
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.open(arguments[0], '_blank');", url);
-    }
-
-    public List<String> get1stWebOptions(){
-        WebElement dropdownElement = driver.findElement(By.xpath(
-                "//div[@rel-title=\"Select Country\"]//select"));
-
-        select = new Select(dropdownElement);
-        List<String> list = new ArrayList<>();
-
-        for (WebElement option : select.getOptions()){
-            list.add(option.getText());
+        if (n == 0 || n == 1){
+            return array;
         }
 
-        return list;
-    }
+        int[] temp = new int[n];
+        int index = 0;
 
+        for (int k : array){
+            boolean isDuplicate = false;
 
-    public List<String> get2ndWebOptions(){
-        WebElement dropdownElement = driver.findElement(By.id("country"));
+            for (int i = 0; i < index; i++) {
 
-        select = new Select(dropdownElement);
+                if (k == temp[i]){
+                    isDuplicate = true;
+                    break;
+                }
+            }
 
-        List<String> list = new ArrayList<>();
-
-        for (WebElement options : select.getOptions()){
-            list.add(options.getText());
+            if (!isDuplicate){
+                temp[index++] = k;
+            }
         }
 
-        return list;
+        int[] result = new int[index];
+        System.arraycopy(temp, 0, result, 0, index);
+
+        return result;
     }
 
-    public List<String> windowHandler(){
-        Set<String> allWindowHandles = driver.getWindowHandles();
-        Iterator<String> itr = allWindowHandles.iterator();
-        String mainTab = itr.next();
-        String newTab = itr.next();
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 2, 4, 5, 3, 6, 4, 5};
 
-        List<String> windows = new ArrayList<>();
-        windows.add(mainTab);
-        windows.add(newTab);
-
-        return windows;
+        System.out.println(Arrays.toString(removeDup(array)));
     }
-
-    @Test
-    public void test_commonOptions(){
-        open1stWebsite();
-
-        List<String> list1 = get1stWebOptions();
-
-        open2ndWebsite();
-
-        driver.switchTo().window(windowHandler().get(1));
-
-        List<String> list2 = get2ndWebOptions();
-
-        list1.retainAll(list2);
-
-        System.out.println("Common options in between the 2 Dropdowns : ");
-        System.out.println(list1);
-    }
-
-    @AfterTest
-    public void tearDown() throws InterruptedException{
-        Thread.sleep(2000);
-        driver.quit();
-    }
-
-
-
 
 
 }
