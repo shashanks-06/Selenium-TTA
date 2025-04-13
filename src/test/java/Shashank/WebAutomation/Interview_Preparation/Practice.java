@@ -14,44 +14,44 @@ import java.util.*;
 
 public class Practice {
 
+    static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static int[] createArray(int size){
+        int[] array = new int[size];
 
-        String FILE_PATH = "src/test/java/Shashank/WebAutomation/Interview_Preparation/ex_2025_01_Jan/ex_15012025/testData.xlsx";
-
-        try(FileInputStream file = new FileInputStream(FILE_PATH)){
-
-            Workbook workbook = new XSSFWorkbook(file);
-            Sheet sheet = workbook.getSheetAt(0);
-
-            for (Row r : sheet){
-                for (Cell c : r){
-                    switch (c.getCellType()){
-                        case STRING:
-                            System.out.print(c.getStringCellValue() + "   ");
-                            break;
-
-                        case NUMERIC:
-                            System.out.print(c.getNumericCellValue() + "   ");
-                            break;
-
-                        case BOOLEAN:
-                            System.out.print(c.getBooleanCellValue() + "   ");
-                            break;
-
-                        default:
-                            System.out.print("Illegal Format    ");
-                            break;
-                    }
-                }
-                System.out.println();
-            }
-
-        }catch (IOException e){
-            e.printStackTrace();
+        for (int i = 0; i < size; i++) {
+            array[i] = sc.nextInt();
         }
 
+        return array;
+    }
 
+    public static int[] addElementAtPosition(int element, int position){
+        System.out.println("Enter the size of array to create: ");
+        int size = sc.nextInt();
+        int[] array = createArray(size);
+        System.out.println("Original Array: " + Arrays.toString(array));
+
+        if (position < 1 || position > size + 1){
+            System.out.println("Invalid Position !");
+        }else {
+            int[] result = new int[size + 1];
+
+            for (int i = 0, j = 0; i < result.length; i++) {
+                if (i == position - 1){
+                    result[i] = element;
+                }else {
+                    result[i] = array[j++];
+                }
+            }
+            return result;
+        }
+        return new int[]{};
+    }
+
+    public static void main(String[] args) {
+        int[] array = addElementAtPosition(3,3);
+        System.out.println("Modified Array: " + Arrays.toString(array));
     }
 
 
