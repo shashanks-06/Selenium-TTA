@@ -49,9 +49,41 @@ public class Practice {
         return new int[]{};
     }
 
+    public static int[] addElementInArray(int[] array){
+        int size = array.length;
+
+        System.out.println("Enter the Element to add: ");
+        int element = sc.nextInt();
+        System.out.println("Enter the position of element " + element + " to add in the array: ");
+        int position = sc.nextInt();
+
+        if (position < 1 || position > size + 1){
+            System.out.println("Invalid Position !!!");
+        }else {
+            int[] result = new int[size + 1];
+
+            for (int i = 0, j = 0; i < result.length ; i++) {
+                if (i == position - 1){
+                    result[i] = element;
+                }else {
+                    result[i] = array[j++];
+                }
+            }
+
+            return result;
+        }
+        return new int[]{};
+    }
+
     public static void main(String[] args) {
-        int[] array = addElementAtPosition(3,3);
-        System.out.println("Modified Array: " + Arrays.toString(array));
+//        int[] array = addElementAtPosition(3,3);
+//        System.out.println("Modified Array: " + Arrays.toString(array));
+
+        int[] array = createArray(6);
+        System.out.println(Arrays.toString(array));
+
+        int[] result = addElementInArray(array);
+        System.out.println(Arrays.toString(result));
     }
 
 
